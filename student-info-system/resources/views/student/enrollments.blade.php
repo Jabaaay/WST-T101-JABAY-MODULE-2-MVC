@@ -1,4 +1,4 @@
-@extends('layouts.dashLayout')
+@extends('layouts.userDash')
 @section('title', 'Dashboard')
 @section('sample')
 
@@ -39,155 +39,80 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">My Enrollment</li>
           </ol>
         </nav>
-     
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <ul class="navbar-nav d-flex align-items-center  justify-content-end">
+
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-2">
       <div class="row">
-        <div class="ms-3">
-          <h3 class="mb-0 h4 font-weight-bolder">Dashboard</h3>
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-flex align-items-center justify-content-between px-3">
+              <h6 class="text-white text-capitalize m-0">My Enrolled Subjects</h6>
 
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Student</p>
-                  <h4 class="mb-0">$53k</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">weekend</i>
-                </div>
-              </div>
+            </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Subject Code</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Subject Name</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Academic Year</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Semester</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($enrollments as $enrollment)
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="text-xs font-weight-bold mb-0">{{ $enrollment->subject->subject_code }}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-sm">
+                      <p class="text-xs font-weight-bold mb-0">{{ $enrollment->subject->name }}</p>
+                      
+                      </td>
+                      <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">{{ $enrollment->academic_year }}</p>
+                      </td>
 
-              
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+55% </span>than last week</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Enrolled</p>
-                  <h4 class="mb-0">2300</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">person</i>
-                </div>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+3% </span>than last month</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Graded</p>
-                  <h4 class="mb-0">3,462</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">leaderboard</i>
-                </div>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-danger font-weight-bolder">-2% </span>than yesterday</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Sales</p>
-                  <h4 class="mb-0">$103,430</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">weekend</i>
-                </div>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+5% </span>than yesterday</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-          <div class="col-lg-4 col-md-6 mt-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h6 class="mb-0 ">Website Views</h6>
-                <p class="text-sm ">Last Campaign Performance</p>
-                <div class="pe-2">
-                  <div class="chart">
-                    <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                  </div>
-                </div>
-                <hr class="dark horizontal">
-                <div class="d-flex ">
-                  <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                  <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-          <div class="card ">
-            <div class="card-body">
-              <h6 class="mb-0 "> Daily Sales </h6>
-              <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
-              <div class="pe-2">
-                <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 4 min ago </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mt-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-0 ">Completed Tasks</h6>
-              <p class="text-sm ">Last Campaign Performance</p>
-              <div class="pe-2">
-                <div class="chart">
-                  <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">just updated</p>
+                      <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">{{ $enrollment->semester }}</p>
+                      </td>
+                      
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-   
+     
+
     </div>
   </main>
   <div class="fixed-plugin">
@@ -519,3 +444,5 @@
 </body>
 
 </html>
+
+

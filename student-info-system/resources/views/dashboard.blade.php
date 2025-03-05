@@ -42,7 +42,20 @@
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
           </ol>
         </nav>
-     
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <ul class="navbar-nav d-flex align-items-center  justify-content-end">
+
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <!-- End Navbar -->
@@ -57,20 +70,19 @@
             <div class="card-header p-2 ps-3">
               <div class="d-flex justify-content-between">
                 <div>
-                  <p class="text-sm mb-0 text-capitalize">Student</p>
-                  <h4 class="mb-0">$53k</h4>
+                  <p class="text-sm mb-0 text-capitalize">Student</p><br>
+                  <h4 class="mb-0" style="font-size: 50px; ">{{ $studentsCount }}</h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">weekend</i>
+                <i class="material-symbols-rounded opacity-10">school</i>
                 </div>
               </div>
 
               
             </div>
             <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+55% </span>than last week</p>
-            </div>
+            <br>
+            <br>
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -78,18 +90,18 @@
             <div class="card-header p-2 ps-3">
               <div class="d-flex justify-content-between">
                 <div>
-                  <p class="text-sm mb-0 text-capitalize">Enrolled</p>
-                  <h4 class="mb-0">2300</h4>
+                  <p class="text-sm mb-0 text-capitalize">Enrolled</p><br>
+                  <h4 class="mb-0" style="font-size: 50px; ">{{ $enrollmentsCount }}</h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">person</i>
+                  <i class="material-symbols-rounded opacity-10">how_to_reg</i>
                 </div>
               </div>
             </div>
             <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+3% </span>than last month</p>
-            </div>
+            <br>
+            <br>
+
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -97,18 +109,17 @@
             <div class="card-header p-2 ps-3">
               <div class="d-flex justify-content-between">
                 <div>
-                  <p class="text-sm mb-0 text-capitalize">Graded</p>
-                  <h4 class="mb-0">3,462</h4>
+                  <p class="text-sm mb-0 text-capitalize">Graded</p><br>
+                  <h4 class="mb-0" style="font-size: 50px; ">{{ $gradesCount }}</h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">leaderboard</i>
+                  <i class="material-symbols-rounded opacity-10">grading</i>
                 </div>
               </div>
             </div>
             <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-danger font-weight-bolder">-2% </span>than yesterday</p>
-            </div>
+<br>
+<br>
           </div>
         </div>
         <div class="col-xl-3 col-sm-6">
@@ -116,76 +127,126 @@
             <div class="card-header p-2 ps-3">
               <div class="d-flex justify-content-between">
                 <div>
-                  <p class="text-sm mb-0 text-capitalize">Sales</p>
-                  <h4 class="mb-0">$103,430</h4>
+                  <p class="text-sm mb-0 text-capitalize">Subjects</p><br>
+                  <h4 class="mb-0" style="font-size: 50px; ">{{ $subjectsCount }}</h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">weekend</i>
+                  <i class="material-symbols-rounded opacity-10">menu_book</i>
                 </div>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+5% </span>than yesterday</p>
-            </div>
+            <br>
+            <br>
           </div>
         </div>
       </div>
       <div class="row">
-          <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="col-lg-6 col-md-6 mt-4 mb-4">
             <div class="card">
               <div class="card-body">
-                <h6 class="mb-0 ">Website Views</h6>
-                <p class="text-sm ">Last Campaign Performance</p>
+                <h6 class="mb-0 ">Students Per Course</h6>
                 <div class="pe-2">
                   <div class="chart">
-                    <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                    <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
                   </div>
                 </div>
                 <hr class="dark horizontal">
-                <div class="d-flex ">
-                  <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                  <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
-                </div>
               </div>
             </div>
           </div>
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-          <div class="card ">
-            <div class="card-body">
-              <h6 class="mb-0 "> Daily Sales </h6>
-              <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
-              <div class="pe-2">
+
+          <div class="col-lg-6 col-md-6 mt-4 mb-4">
+    <div class="card">
+        <div class="card-body">
+            <h6 class="mb-0">Students Per Year Level</h6>
+            <div class="pe-2">
                 <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
+                    <canvas id="chart-year" class="chart-canvas" height="170"></canvas>
                 </div>
-              </div>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 4 min ago </p>
-              </div>
             </div>
-          </div>
+            <hr class="dark horizontal">
         </div>
-        <div class="col-lg-4 mt-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-0 ">Completed Tasks</h6>
-              <p class="text-sm ">Last Campaign Performance</p>
-              <div class="pe-2">
-                <div class="chart">
-                  <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">just updated</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+</div> 
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Data for Course Enrollment (Bar Chart)
+        var sectionLabels = @json(array_keys($sectionCounts)); // ['BSIT', 'BSAT', 'BSFT', 'BSET']
+        var sectionData = @json(array_values($sectionCounts)); // [count, count, count, count]
+
+        const courseData = {
+            labels: sectionLabels,
+            datasets: [{
+                label: "Students Per Course",
+                data: sectionData,
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50"],
+            }]
+        };
+
+        const courseConfig = {
+            type: 'bar',
+            data: courseData,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: "Course Enrollment Chart"
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        };
+
+        // Data for Year Level (Line Chart)
+        var yearLabels = @json(array_keys($yearCounts)); // ['1', '2', '3', '4']
+        var yearData = @json(array_values($yearCounts)); // [count, count, count, count]
+
+        const yearDataConfig = {
+            labels: yearLabels.map(y => y + (y == 1 ? "st" : y == 2 ? "nd" : y == 3 ? "rd" : "th") + " Year"),
+            datasets: [{
+                label: "Students Per Year Level",
+                data: yearData,
+                borderColor: "#36A2EB",
+                backgroundColor: "rgba(54, 162, 235, 0.5)",
+                pointStyle: 'circle',
+                pointRadius: 6,
+                pointHoverRadius: 8
+            }]
+        };
+
+        const yearConfig = {
+            type: 'line',
+            data: yearDataConfig,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: "Year Level Trend"
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        };
+
+        // Initialize Charts
+        new Chart(document.getElementById("chart-line"), courseConfig);
+        new Chart(document.getElementById("chart-year"), yearConfig);
+    });
+</script>
+
+
+      
       </div>
    
     </div>
