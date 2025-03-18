@@ -6,6 +6,8 @@ use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Subject;
+use Illuminate\Support\Facades\DB;
+
 
 class EnrollmentController extends Controller
 {

@@ -108,8 +108,15 @@
                     </tr>
                     @endforeach
 
+                    <tr>
+                      <td></td>
+                      <td colspan="1" class="text-xs font-weight-bold mb-0 btn btn-secondary">GWA</td>
+                      <td  style="text-align: center;" class="text-l font-weight-bold"><span class="badge badge-sm bg-gradient-success">{{ number_format($gwa, 2) }}</span></td>
+                    </tr>
+
                   </tbody>
                 </table>
+
               </div>
             </div>
           </div>

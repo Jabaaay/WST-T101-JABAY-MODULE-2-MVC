@@ -61,6 +61,16 @@
     </nav>
 
 <div class="container-fluid py-2">
+              @if ($errors->any())
+              <div class="alert alert-danger alert-dismissible text-white" role="alert">
+                @foreach ($errors->all() as $error)
+                <span class="text-sm">{{ $error }}</span>
+                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                @endforeach
+              </div>
+              @endif
     <div class="row">
         <div class="col-12">
             <div class="card my-4">
@@ -70,15 +80,7 @@
                     </div>
                 </div>
                 <div class="card-body px-4 pb-4">
-                @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+
                     <form action="{{ route('grades.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">

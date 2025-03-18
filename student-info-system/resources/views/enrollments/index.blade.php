@@ -61,6 +61,15 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-2">
+    @if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible text-white" role="alert">
+        <span class="text-sm">{{ session('success') }}</span>
+        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
@@ -109,7 +118,13 @@
                         <span class="text-secondary text-xs font-weight-bold">{{ $enrollment->subject->name }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="badge badge-sm bg-gradient-success">{{ ucfirst($enrollment->status) }}</span>
+                      <span class="badge badge-sm 
+                          @if($enrollment->status === 'dropped') bg-gradient-danger 
+                          @else bg-gradient-success 
+                          @endif">
+                          {{ ucfirst($enrollment->status) }}
+                      </span>
+
 
                       </td>
                       <td class="align-middle text-center">
